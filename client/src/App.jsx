@@ -9,7 +9,7 @@ export default function App() {
 
             {/* Header with logo space, search bar and create report button */}
             <header className="header">
-                <div className="logoPlaceholder">Logo</div>
+                <div className="logoPlaceholder"></div>
 
 
                 <div className="searchWrap">
@@ -33,9 +33,9 @@ export default function App() {
 
                     <div className="card filtersCard">
                         <h3>FILTERS</h3>
-                        <label><input type="checkbox" disabled /> Property Crime</label>
-                        <label><input type="checkbox" disabled /> Violent Crime</label>
-                        <label><input type="checkbox" disabled /> Theft</label>
+                        <label><input type="checkbox" enabled /> Property Crime</label>
+                        <label><input type="checkbox" enabled /> Violent Crime</label>
+                        <label><input type="checkbox" enabled /> Theft</label>
                     </div>
                 </section>
 
