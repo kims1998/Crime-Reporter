@@ -9,9 +9,9 @@ public class report {
     private int time;
     private String AMPM;
     private String date;
-    private String personInvolvedAGE1;
+    private int personInvolvedAGE1;
     private String personInvolvedGENDER1;
-    private String personInvolvedAGE2;
+    private int personInvolvedAGE2;
     private String personInvolvedGENDER2;
     private String description;
 
