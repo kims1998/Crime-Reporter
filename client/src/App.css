@@ -164,3 +164,50 @@ body, #root, .page {
       grid-template-columns:1fr;
   }
 }
+
+/* Create Report Popup */
+.modalBackdrop{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.55);
+    display: grid;
+    place-items: center;
+    z-index: 1000;
+}
+
+.modalCard{
+    background: var(--white);
+    color: #111;
+    width: min(640px, 92vw);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.35);
+    border: 1px solid #ddd;
+}
+
+.modalHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 18px;
+    border-bottom: 1px solid #eee;
+}
+
+.modalHeader h2{
+    margin: 0;
+    font-size: 1.25rem;
+    letter-spacing: .2px;
+}
+
+.modalClose{
+    background: transparent;
+    border: 0;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #444;
+}
+
+.modalBody{
+    padding: 18px;
+    color: #333;
+    min-height: 120px;
+}

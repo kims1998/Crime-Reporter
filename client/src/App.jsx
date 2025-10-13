@@ -1,4 +1,25 @@
+import { useEffect, useRef, useState } from "react";
+import "./App.css";
+
 export default function App() {
+    // 'Create Report' pop-up
+    const [showModal, setShowModal] = useState(false);
+
+    // Close on ESC
+    useEffect(() => {
+        function onKey(e) {
+            if (e.key === "Escape") setShowModal(false);
+        }
+        window.addEventListener("keydown", onKey);
+        return () => window.removeEventListener("keydown", onKey);
+    }, []);
+
+    // Close if clicking the dark backdrop (but not the rectangle itself)
+    const backdropRef = useRef(null);
+    function onBackdropClick(e) {
+        if (e.target === backdropRef.current) setShowModal(false);
+    }
+
     return (
         <div className="page">
             {/* The login bar */}
@@ -18,7 +39,9 @@ export default function App() {
                 </div>
 
 
-                <button className="createBtn" disabled>Create Report</button>
+                <button className="createBtn" onClick={() => setShowModal(true)}>
+                    Create Report
+                </button>
             </header>
 
 
@@ -44,6 +67,30 @@ export default function App() {
                     Map Placeholder
                 </section>
             </main>
+
+            {/* Modal */}
+            {showModal && (
+                <div
+                    className="modalBackdrop"
+                    ref={backdropRef}
+                    onMouseDown={onBackdropClick}
+                    role="dialog"
+                    aria-modal="true"
+                    aria-labelledby="cr-title"
+                >
+                    <div className="modalCard">
+                        <div className="modalHeader">
+                            <h2 id="cr-title">Create Report</h2>
+                            <button className="modalClose" onClick={() => setShowModal(false)} aria-label="Close">
+                                ✖
+                            </button>
+                        </div>
+                        <div className="modalBody">
+                            (placeholder)
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
