@@ -1,3 +1,5 @@
+package controller;
+
 @RestController
 @RequestMapping("/api")
 public class MyController {
