@@ -1,3 +1,4 @@
+/*
 package controller;
 
 @RestController
@@ -9,3 +10,4 @@ public class MyController {
         return ResponseEntity.ok(List.of("One", "Two", "Three"));
     }
 }
+ */
