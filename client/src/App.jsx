@@ -1,4 +1,8 @@
+import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
+const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+
 export default function App() {
+    const position = { lat: 32.7764, lng: -117.0719 };
     return (
         <div className="page">
             {/* The login bar */}
@@ -41,7 +45,21 @@ export default function App() {
 
 
                 <section className="mapPanel">
-                    Map Placeholder
+                    <APIProvider apiKey={ apiKey }>
+                        <Map
+                            defaultCenter = { position }
+                            defaultZoom={ 16 }
+                            style = {{width: '100%', height: '100%'}}
+                            options = {{
+                                zoomControl: true,
+                                mapTypeControl: true,
+                                streetViewControl: true,
+                                fullscreenControl: true,
+                                scaleControl: true
+                            }}
+
+                        />
+                    </APIProvider>
                 </section>
             </main>
         </div>
