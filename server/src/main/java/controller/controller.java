@@ -1,3 +1,6 @@
+/*
+package controller;
+
 @RestController
 @RequestMapping("/api")
 public class MyController {
@@ -7,3 +10,4 @@ public class MyController {
         return ResponseEntity.ok(List.of("One", "Two", "Three"));
     }
 }
+ */
