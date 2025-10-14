@@ -1,4 +1,4 @@
-package Class;
+package domain;
 
 
 public class reporter {
