@@ -1,25 +1,8 @@
-import { useEffect, useRef, useState } from "react";
-import "./App.css";
+import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
+const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
 export default function App() {
-    // 'Create Report' pop-up
-    const [showModal, setShowModal] = useState(false);
-
-    // Close on ESC
-    useEffect(() => {
-        function onKey(e) {
-            if (e.key === "Escape") setShowModal(false);
-        }
-        window.addEventListener("keydown", onKey);
-        return () => window.removeEventListener("keydown", onKey);
-    }, []);
-
-    // Close if clicking the dark backdrop (but not the rectangle itself)
-    const backdropRef = useRef(null);
-    function onBackdropClick(e) {
-        if (e.target === backdropRef.current) setShowModal(false);
-    }
-
+    const position = { lat: 32.7764, lng: -117.0719 };
     return (
         <div className="page">
             {/* The login bar */}
@@ -39,9 +22,7 @@ export default function App() {
                 </div>
 
 
-                <button className="createBtn" onClick={() => setShowModal(true)}>
-                    Create Report
-                </button>
+                <button className="createBtn" disabled>Create Report</button>
             </header>
 
 
@@ -64,33 +45,23 @@ export default function App() {
 
 
                 <section className="mapPanel">
-                    Map Placeholder
+                    <APIProvider apiKey={ apiKey }>
+                        <Map
+                            defaultCenter = { position }
+                            defaultZoom={ 16 }
+                            style = {{width: '100%', height: '100%'}}
+                            options = {{
+                                zoomControl: true,
+                                mapTypeControl: true,
+                                streetViewControl: true,
+                                fullscreenControl: true,
+                                scaleControl: true
+                            }}
+
+                        />
+                    </APIProvider>
                 </section>
             </main>
-
-            {/* Modal */}
-            {showModal && (
-                <div
-                    className="modalBackdrop"
-                    ref={backdropRef}
-                    onMouseDown={onBackdropClick}
-                    role="dialog"
-                    aria-modal="true"
-                    aria-labelledby="cr-title"
-                >
-                    <div className="modalCard">
-                        <div className="modalHeader">
-                            <h2 id="cr-title">Create Report</h2>
-                            <button className="modalClose" onClick={() => setShowModal(false)} aria-label="Close">
-                                ✖
-                            </button>
-                        </div>
-                        <div className="modalBody">
-                            (placeholder)
-                        </div>
-                    </div>
-                </div>
-            )}
         </div>
     );
 }
