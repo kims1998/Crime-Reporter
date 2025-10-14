@@ -1,4 +1,4 @@
-package domain;
+package com.sdsucrimereporter.dbapi.domain;
 
 
 public class reporter {
