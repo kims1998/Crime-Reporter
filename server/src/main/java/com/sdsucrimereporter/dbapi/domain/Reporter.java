@@ -1,7 +1,7 @@
 package com.sdsucrimereporter.dbapi.domain;
 
 
-public class reporter {
+public class Reporter {
 
     private String redID;
     private int password;
