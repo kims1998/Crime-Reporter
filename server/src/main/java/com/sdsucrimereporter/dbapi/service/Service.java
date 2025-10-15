@@ -60,7 +60,6 @@ public class Service {
     }
 
     // Reporter
-
     public Page<Reporter> getAllReporters(int page, int size) {
         return reporterRepo.findAll(PageRequest.of(page, size, Sort.by("id")));
     }

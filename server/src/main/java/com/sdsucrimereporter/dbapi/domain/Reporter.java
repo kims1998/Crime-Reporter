@@ -25,5 +25,9 @@ public class Reporter {
     private String redID;
     private int password;
 
+    public String getRedID() {
+        return redID;
+    }
+
 
 }
