@@ -36,5 +36,15 @@ public class Report {
     private String personInvolvedGENDER2;
     private String description;
     private String photoUrl;
+    private String cordLat;
+    private String cordLng;
+
+    public String getReportId() {
+        return reportId;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
+    }
 
 }

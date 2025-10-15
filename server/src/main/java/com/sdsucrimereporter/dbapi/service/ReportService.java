@@ -5,6 +5,9 @@ import com.sdsucrimereporter.dbapi.repo.ReportRepo;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -15,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.function.BiFunction;
 import java.util.function.Function;
@@ -23,13 +27,14 @@ import static com.sdsucrimereporter.dbapi.constant.Constant.PHOTO_DIRECTORY;
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
 @Service
-@Slf4j
 @Transactional(rollbackOn = Exception.class)
 @RequiredArgsConstructor
 
 public class ReportService {
-    // ReportRepo should be final, Need to fix -- 10.14.2025 Perfect
+    private static final Logger log = LoggerFactory.getLogger(ReportService.class);
+
     private ReportRepo reportRepo;
+
 
     public Page<Report> getAllReports(int page, int size) {
         return reportRepo.findAll(PageRequest.of(page, size, Sort.by("id")));
@@ -45,8 +50,10 @@ public class ReportService {
         return reportRepo.save(report);
     }
 
-    public Report deleteContact(Report report) {
-
+    public Report deleteReport(Report report) {
+        if (!reportRepo.existsById(report.getReportId())) {
+            throw new NoSuchElementException("Report doesn't exist");
+        }
         reportRepo.delete(report);
         return report;
 
@@ -56,7 +63,7 @@ public class ReportService {
         //log.info("Saving picture of the incident for reports ID: {}", id);
         Report report = getReport(id);
         String photoUrl = photoFunction.apply(id, file);
-        //reporter.setPhotoUrl(photoUrl);
+        report.setPhotoUrl(photoUrl);
         reportRepo.save(report);
         return photoUrl;
     }
