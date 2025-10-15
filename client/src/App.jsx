@@ -30,12 +30,11 @@ export default function App() {
 
                     <div className="card filtersCard">
                         <h3>FILTERS</h3>
-                        <label><input type="checkbox" enabled /> Property Damage</label>
-                        <label><input type="checkbox" enabled /> </label>
-                        <label><input type="checkbox" enabled /> </label><label>
-                        <input type="checkbox" enabled /> </label>
-
-                        <label><input type="checkbox" enabled /> Theft</label>
+                        <label><input type="checkbox" enabled />Property Damage</label>
+                        <label><input type="checkbox" enabled />Placeholder</label>
+                        <label><input type="checkbox" enabled />Placeholder</label><label>
+                        <input type="checkbox" enabled />Placeholder</label>
+                        <label><input type="checkbox" enabled />Theft</label>
                     </div>
                 </section>
 
