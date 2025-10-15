@@ -24,6 +24,7 @@ public class ReportResource {
 
     private Service service;
 
+
     @PostMapping
     public ResponseEntity<Report> createReport(@RequestBody Report report) {
         return ResponseEntity.created(URI.create("reports/reportID")).body(service.createReport(report));

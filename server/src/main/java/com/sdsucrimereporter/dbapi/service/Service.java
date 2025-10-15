@@ -5,6 +5,7 @@ import com.sdsucrimereporter.dbapi.domain.Reporter;
 import com.sdsucrimereporter.dbapi.repo.ReportRepo;
 import com.sdsucrimereporter.dbapi.repo.ReporterRepo;
 import jakarta.transaction.Transactional;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,13 +32,15 @@ import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 @org.springframework.stereotype.Service
 @Transactional(rollbackOn = Exception.class)
 @RequiredArgsConstructor
-
-
 public class Service {
     private static final Logger log = LoggerFactory.getLogger(Service.class);
 
     private ReportRepo reportRepo;
+
+
     private ReporterRepo reporterRepo;
+
+
 
     // Report
     public Page<Report> getAllReports(int page, int size) {
