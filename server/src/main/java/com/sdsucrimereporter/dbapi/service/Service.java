@@ -1,17 +1,16 @@
 package com.sdsucrimereporter.dbapi.service;
 
 import com.sdsucrimereporter.dbapi.domain.Report;
+import com.sdsucrimereporter.dbapi.domain.Reporter;
 import com.sdsucrimereporter.dbapi.repo.ReportRepo;
+import com.sdsucrimereporter.dbapi.repo.ReporterRepo;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -26,16 +25,17 @@ import java.util.function.Function;
 import static com.sdsucrimereporter.dbapi.constant.Constant.PHOTO_DIRECTORY;
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
-@Service
+@org.springframework.stereotype.Service
 @Transactional(rollbackOn = Exception.class)
 @RequiredArgsConstructor
 
-public class ReportService {
-    private static final Logger log = LoggerFactory.getLogger(ReportService.class);
+public class Service {
+    private static final Logger log = LoggerFactory.getLogger(Service.class);
 
     private ReportRepo reportRepo;
+    private ReporterRepo reporterRepo;
 
-
+    // Report
     public Page<Report> getAllReports(int page, int size) {
         return reportRepo.findAll(PageRequest.of(page, size, Sort.by("id")));
 
@@ -59,7 +59,29 @@ public class ReportService {
 
     }
 
-    public String uploadPhoto(String id, MultipartFile file) {
+    // Reporter
+
+    public Page<Reporter> getAllReporters(int page, int size) {
+        return reporterRepo.findAll(PageRequest.of(page, size, Sort.by("id")));
+    }
+
+    public Reporter getReporter(String id) {
+        return reporterRepo.findById(id).orElseThrow(() -> new RuntimeException("Reporter not found"));
+    }
+
+    public Reporter createReport(Reporter reporter) {
+        return reporterRepo.save(reporter);
+    }
+
+    public Reporter deleteReporter(Reporter reporter) {
+        if (!reporterRepo.existsById(reporter.getRedID())) {
+            throw new NoSuchElementException("Report doesn't exist");
+        }
+        reporterRepo.delete(reporter);
+        return reporter;
+    }
+
+    public String uploadPhotoReport(String id, MultipartFile file) {
         //log.info("Saving picture of the incident for reports ID: {}", id);
         Report report = getReport(id);
         String photoUrl = photoFunction.apply(id, file);
