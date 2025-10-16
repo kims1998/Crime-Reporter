@@ -1,12 +1,13 @@
 import {APIProvider, Map, AdvancedMarker, Pin} from "@vis.gl/react-google-maps";
 import {useState} from "react";
 const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+const mapId = import.meta.env.VITE_GOOGLE_MAPS_MAPID;
 
 const SDSUMap = () => {
 
     const [markerPosition, setMarkerPosition] = useState(null);
     const position = { lat: 32.7764, lng: -117.0719 };
-    const mapId = '5b09d11967f372f5685661ae';
+
 
     const sdsuBounds = {
         north: 32.780,
