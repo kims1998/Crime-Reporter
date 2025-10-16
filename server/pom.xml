@@ -12,7 +12,7 @@
     <artifactId>dbapi</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>dbapi</name>
-    <description>Demo project for Spring Boot (Based off Get Arrays's youtube video)</description>
+    <description>SDSU Crime Reporter API</description>
     <url/>
     <licenses>
         <license/>

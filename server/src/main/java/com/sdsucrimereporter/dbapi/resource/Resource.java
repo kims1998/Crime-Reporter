@@ -20,7 +20,7 @@ import static org.springframework.http.MediaType.IMAGE_PNG_VALUE;
 @RestController
 @RequestMapping("/reports")
 @RequiredArgsConstructor
-public class ReportResource {
+public class Resource {
 
     private Service service;
 
