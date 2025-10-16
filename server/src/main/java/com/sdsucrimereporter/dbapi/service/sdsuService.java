@@ -5,16 +5,13 @@ import com.sdsucrimereporter.dbapi.domain.Reporter;
 import com.sdsucrimereporter.dbapi.repo.ReportRepo;
 import com.sdsucrimereporter.dbapi.repo.ReporterRepo;
 import jakarta.transaction.Transactional;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -29,10 +26,10 @@ import java.util.function.Function;
 import static com.sdsucrimereporter.dbapi.constant.Constant.PHOTO_DIRECTORY;
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
-@org.springframework.stereotype.Service
+@Service
 @Transactional(rollbackOn = Exception.class)
 @RequiredArgsConstructor
-public class Service {
+public class sdsuService {
     private static final Logger log = LoggerFactory.getLogger(Service.class);
 
     private ReportRepo reportRepo;
@@ -88,7 +85,7 @@ public class Service {
     }
 
     public String uploadPhotoReport(String id, MultipartFile file) {
-        //log.info("Saving picture of the incident for reports ID: {}", id);
+        log.info("Saving picture of the incident for reports ID: {}", id);
         Report report = getReport(id);
         String photoUrl = photoFunction.apply(id, file);
         report.setPhotoUrl(photoUrl);

@@ -1,7 +1,8 @@
 package com.sdsucrimereporter.dbapi.resource;
 
 import com.sdsucrimereporter.dbapi.domain.Report;
-import com.sdsucrimereporter.dbapi.service.Service;
+
+import com.sdsucrimereporter.dbapi.service.sdsuService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -17,13 +18,12 @@ import static com.sdsucrimereporter.dbapi.constant.Constant.PHOTO_DIRECTORY;
 import static org.springframework.http.MediaType.IMAGE_JPEG_VALUE;
 import static org.springframework.http.MediaType.IMAGE_PNG_VALUE;
 
+
 @RestController
 @RequestMapping("/reports")
 @RequiredArgsConstructor
 public class Resource {
-
-    private Service service;
-
+    private sdsuService service;
 
     @PostMapping
     public ResponseEntity<Report> createReport(@RequestBody Report report) {
