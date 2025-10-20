@@ -2,6 +2,7 @@ import {APIProvider, Map, AdvancedMarker, Pin} from "@vis.gl/react-google-maps";
 import {useState} from "react";
 const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 const mapId = import.meta.env.VITE_GOOGLE_MAPS_MAPID;
+import CrimeReportForm from "./CrimeReportForm.jsx";
 
 const SDSUMap = () => {
 
@@ -27,7 +28,11 @@ const SDSUMap = () => {
         const lat = event.detail.latLng.lat;
         const lng = event.detail.latLng.lng;
         setMarkerPosition({ lat, lng})
-    }
+        setShowForm(true);
+    };
+
+    const [showForm, setShowForm] = useState(false);
+
 
 
     return (
@@ -61,6 +66,13 @@ const SDSUMap = () => {
                     </Pin>
                 </AdvancedMarker>
             </Map>
+            {showForm && (
+                <CrimeReportForm
+                    position={markerPosition}
+                    onClose={()=> setShowForm(false)}
+                    onSubmit={(data) => console.log("Crime report: ", data)}
+                />
+            )}
         </APIProvider>
     );
 };
