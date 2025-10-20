@@ -2,18 +2,18 @@ import {APIProvider, Map, AdvancedMarker, Pin} from "@vis.gl/react-google-maps";
 import {useState} from "react";
 const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 const mapId = import.meta.env.VITE_GOOGLE_MAPS_MAPID;
+import CrimeReportForm from "./CrimeReportForm.jsx";
 
 const SDSUMap = () => {
 
     const [markerPosition, setMarkerPosition] = useState(null);
     const position = { lat: 32.7764, lng: -117.0719 };
 
-
     const sdsuBounds = {
         north: 32.780,
-        south: 32.769,
-        west: -117.083,
-        east: -117.063,
+        south: 32.766,
+        west: -117.084,
+        east: -117.059,
     }
 
     const sdsuGrayBoxPath = [
@@ -27,7 +27,10 @@ const SDSUMap = () => {
         const lat = event.detail.latLng.lat;
         const lng = event.detail.latLng.lng;
         setMarkerPosition({ lat, lng})
-    }
+        setShowForm(true);
+    };
+
+    const [showForm, setShowForm] = useState(false);
 
 
     return (
@@ -57,10 +60,17 @@ const SDSUMap = () => {
                         background={'#FF0000'}
                         borderColor={'#8B0000'}
                         glyphColor={'#FFFFFF'}
-                    >
+                        >
                     </Pin>
                 </AdvancedMarker>
             </Map>
+            {showForm && (
+                <CrimeReportForm
+                    position={markerPosition}
+                    onClose={()=> setShowForm(false)}
+                    onSubmit={(data) => console.log("Crime report: ", data)}
+                />
+            )}
         </APIProvider>
     );
 };
