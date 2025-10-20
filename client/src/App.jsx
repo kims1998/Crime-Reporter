@@ -1,11 +1,14 @@
-import {useEffect, useRef, useState} from "react";
-import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
+// import {useEffect, useRef, useState} from "react";
+// import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
+// import "./App.css";
+// const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+// App.jsx
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
-
-const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+import SDSUMap from "./Map.jsx";
 
 export default function App() {
-    const position = { lat: 32.7764, lng: -117.0719 };
+    //const position = { lat: 32.7764, lng: -117.0719 };
 
     // 'Create Report' pop-up
     const [showModal, setShowModal] = useState(false);
@@ -83,23 +86,8 @@ export default function App() {
                     </div>
                 </section>
 
-
                 <section className="mapPanel">
-                    <APIProvider apiKey={ apiKey }>
-                        <Map
-                            defaultCenter = { position }
-                            defaultZoom={ 16 }
-                            style = {{width: '100%', height: '100%'}}
-                            options = {{
-                                zoomControl: true,
-                                mapTypeControl: true,
-                                streetViewControl: true,
-                                fullscreenControl: true,
-                                scaleControl: true
-                            }}
-
-                        />
-                    </APIProvider>
+                    <SDSUMap />
                 </section>
             </main>
 
@@ -111,8 +99,7 @@ export default function App() {
                     onMouseDown={onBackdropClick}
                     role="dialog"
                     aria-modal="true"
-                    aria-labelledby="cr-title"
-                >
+                    aria-labelledby="cr-title">
                     <div className="modalCard">
                         <div className="modalHeader">
                             <h2 id="cr-title">Create Report</h2>
@@ -126,36 +113,22 @@ export default function App() {
                                 {/* Date & Time */}
                                 <div className="field">
                                     <label htmlFor="date">Date of incident</label>
-                                    <input id="date" type="date" />
+                                    <input id="date" type="date" className="input" />
                                 </div>
 
                                 <div className="field">
                                     <label htmlFor="time">Time</label>
                                     <div className="timeRow">
-                                        <input id="time" type="time" />
-                                        <div className="ampm">
-                                            {/* AM/PM as checkboxes */}
-                                            <label>
-                                                <input
-                                                    type="checkbox"
-                                                    onChange={(e) => {
-                                                        const pm = document.getElementById("pmChk");
-                                                        if (e.target.checked && pm) pm.checked = false;
-                                                    }}
-                                                    id="amChk"
-                                                />{" "}
-                                                AM
+                                        <input id="time" type="time" className="input" />
+                                        {/* AM/PM as radios to ensure exclusivity */}
+                                        <div className="segmented" role="radiogroup" aria-label="AM or PM">
+                                            <label className="segmentedItem">
+                                                <input type="radio" name="ampm" value="AM" defaultChecked />
+                                                <span>AM</span>
                                             </label>
-                                            <label>
-                                                <input
-                                                    type="checkbox"
-                                                    onChange={(e) => {
-                                                        const am = document.getElementById("amChk");
-                                                        if (e.target.checked && am) am.checked = false;
-                                                    }}
-                                                    id="pmChk"
-                                                />{" "}
-                                                PM
+                                            <label className="segmentedItem">
+                                                <input type="radio" name="ampm" value="PM" />
+                                                <span>PM</span>
                                             </label>
                                         </div>
                                     </div>
@@ -164,12 +137,12 @@ export default function App() {
                                 {/* Your info */}
                                 <div className="field">
                                     <label htmlFor="yourAge">Your Age</label>
-                                    <input id="yourAge" type="number" min="0" placeholder="e.g., 21" />
+                                    <input id="yourAge" type="number" min="0" placeholder="e.g., 21" className="input" />
                                 </div>
 
                                 <div className="field">
                                     <label htmlFor="yourGender">Your Gender</label>
-                                    <select id="yourGender" defaultValue="">
+                                    <select id="yourGender" defaultValue="" className="input">
                                         <option value="" disabled>Select…</option>
                                         <option>M</option>
                                         <option>F</option>
@@ -178,22 +151,22 @@ export default function App() {
                                     </select>
                                 </div>
 
-                                {/* Person involved info */}
-                                <div className="fieldsetTitle">Person Involved</div>
+                                {/* Person involved */}
+                                <div className="fieldsetTitle full">Person Involved</div>
 
                                 <div className="field">
                                     <label htmlFor="personName">Name</label>
-                                    <input id="personName" type="text" placeholder="(optional)" />
+                                    <input id="personName" type="text" placeholder="(optional)" className="input" />
                                 </div>
 
                                 <div className="field">
                                     <label htmlFor="personAge">Age</label>
-                                    <input id="personAge" type="number" min="0" placeholder="e.g., 22" />
+                                    <input id="personAge" type="number" min="0" placeholder="e.g., 22" className="input" />
                                 </div>
 
                                 <div className="field">
                                     <label htmlFor="personGender">Gender</label>
-                                    <select id="personGender" defaultValue="">
+                                    <select id="personGender" defaultValue="" className="input">
                                         <option value="" disabled>Select…</option>
                                         <option>M</option>
                                         <option>F</option>
@@ -202,31 +175,32 @@ export default function App() {
                                     </select>
                                 </div>
 
-                                {/* Incident type checkboxes */}
+                                {/* Incident type */}
                                 <div className="field full">
                                     <label>Type of Incident</label>
                                     <div className="checksRow">
-                                        <label><input type="checkbox" /> Theft</label>
-                                        <label><input type="checkbox" /> Vandalism</label>
-                                        <label><input type="checkbox" /> Assault</label>
-                                        <label><input type="checkbox" /> Disturbance</label>
-                                        <label><input type="checkbox" /> Other</label>
+                                        <label className="check"><input type="checkbox" /> <span>Theft</span></label>
+                                        <label className="check"><input type="checkbox" /> <span>Vandalism</span></label>
+                                        <label className="check"><input type="checkbox" /> <span>Assault</span></label>
+                                        <label className="check"><input type="checkbox" /> <span>Disturbance</span></label>
+                                        <label className="check"><input type="checkbox" /> <span>Other</span></label>
                                     </div>
                                 </div>
 
-                                {/* Description box (NEED TO FIX) */}
+                                {/* Description */}
                                 <div className="field full">
                                     <label htmlFor="desc">Description of Incident</label>
-                                    <textarea id="desc" rows="5" placeholder="Describe what happened…" />
+                                    <textarea id="desc" rows="5" placeholder="Describe what happened…" className="input textarea" />
                                 </div>
 
-                                {/* Actions (Don't work for now) */}
-                                <div className="actions">
+                                {/* Actions */}
+                                <div className="actions full">
                                     <button type="button" className="btn secondary" onClick={() => setShowModal(false)}>Cancel</button>
                                     <button type="submit" className="btn primary">Save</button>
                                 </div>
                             </form>
                         </div>
+
 
                     </div>
                 </div>
