@@ -8,12 +8,11 @@ const SDSUMap = () => {
     const [markerPosition, setMarkerPosition] = useState(null);
     const position = { lat: 32.7764, lng: -117.0719 };
 
-
     const sdsuBounds = {
         north: 32.780,
-        south: 32.769,
-        west: -117.083,
-        east: -117.063,
+        south: 32.766,
+        west: -117.084,
+        east: -117.059,
     }
 
     const sdsuGrayBoxPath = [
@@ -28,7 +27,6 @@ const SDSUMap = () => {
         const lng = event.detail.latLng.lng;
         setMarkerPosition({ lat, lng})
     }
-
 
     return (
         <APIProvider apiKey={apiKey} libraries={["marker"]} mapId={mapId}>
@@ -57,7 +55,7 @@ const SDSUMap = () => {
                         background={'#FF0000'}
                         borderColor={'#8B0000'}
                         glyphColor={'#FFFFFF'}
-                    >
+                        >
                     </Pin>
                 </AdvancedMarker>
             </Map>
