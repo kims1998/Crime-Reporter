@@ -1,14 +1,8 @@
-// import {useEffect, useRef, useState} from "react";
-// import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
-// import "./App.css";
-// const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
-// App.jsx
 import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import SDSUMap from "./Map.jsx";
 
 export default function App() {
-    //const position = { lat: 32.7764, lng: -117.0719 };
 
     // 'Create Report' pop-up
     const [showModal, setShowModal] = useState(false);
