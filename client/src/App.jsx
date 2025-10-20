@@ -25,7 +25,26 @@ export default function App() {
                 <section className="leftCol">
                     <div className="card reportCard">
                         <h2>REPORT</h2>
-                        <p className="muted">(placeholder)</p>
+
+                        <div className="reportField">
+                            <strong>Date of Incident:</strong>
+                            <span>MM/DD/YYYY</span>
+                        </div>
+
+                        <div className="reportField">
+                            <strong>Time:</strong>
+                            <span>00:00 AM/PM</span>
+                        </div>
+
+                        <div className="reportField">
+                            <strong>Type of Incident:</strong>
+                            <span>–</span>
+                        </div>
+
+                        <div className="reportField">
+                            <strong>Description of Incident:</strong>
+                            <p className="reportDescription">No description yet.</p>
+                        </div>
                     </div>
 
                     <div className="card filtersCard">
