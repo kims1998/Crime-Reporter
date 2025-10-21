@@ -27,18 +27,25 @@ body, #root, .page {
     align-items:center;
     padding:12px;
     border-bottom:1px solid var(--border);
-    background-color: #fff;
+    background: #ffffff
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,1) 0%,
+                    rgba(240,153,77,1) 37%,
+                    rgba(184,0,0,1) 100%);
 }
 
-.loginBtn{
-    background:transparent;
-    border:0;
-    color:#c6cbd1;
+.loginBtn {
+    background: transparent;
+    border:none;
+    color: whitesmoke;
+    font-size: 16px;
     font-weight: bold;
     padding:6px 10px;
     border-radius:999px;
 }
-.loginBtn:disabled{
+.loginBtn:hover {
+    color: darkgray;
     opacity:.9;
 }
 
@@ -58,12 +65,6 @@ body, #root, .page {
     padding:2px;
     border-bottom:1px solid var(--border);
     gap: 10px;
-}
-
-.filtersCard{
-    background: #111111 var(--panel);
-    padding:8px;
-    width:100%;
 }
 /*END NAVBAR */
 
@@ -113,7 +114,7 @@ body, #root, .page {
 .createBtn{
     background:var(--accent);
     color:var(--white);
-    padding:5px 16px;
+    padding:12px 16px;
     border-radius:16px;
     font-weight:600;
 }
