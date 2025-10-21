@@ -5,7 +5,6 @@ import Report from "./CreateReport.jsx";
 import Filter from "./Filter.jsx";
 
 export default function App() {
-
     // 'Create Report' pop-up
     const [showModal, setShowModal] = useState(false);
 
@@ -26,12 +25,12 @@ export default function App() {
 
     return (
         <div className="page">
-            <div className="header">
+            <header className="header">
                 <div className="schoolLogo"></div>
                 <button className="loginBtn" disabled>Login</button>
-            </div>
+            </header>
 
-            <header className="navBar">
+            <nav className="navBar">
                 <div className="card filtersCard">
                     <Filter />
                 </div>
@@ -39,7 +38,7 @@ export default function App() {
                         onClick={() => setShowModal(true)}>
                     Create Report
                 </button>
-            </header>
+            </nav>
 
             {/* Main content with left rail and map */}
             <main className="content">

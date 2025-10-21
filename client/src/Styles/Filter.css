@@ -1,0 +1,52 @@
+.filtersCard{
+    display: flex;
+    align-items: center;
+    background: #111111 var(--panel);
+    padding:8px;
+    gap:8px;
+    width: fit-content;
+}
+
+.filter-section {
+    color: black;
+    max-height: 60px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+.filter-section > div {
+    min-width: 215px; /* or any fixed width you prefer */
+    max-width: 215px;
+    flex-shrink: 0; /* prevent shrinking */
+}
+
+.resetBtn {
+    width: 95px;
+    height: 40px;
+    background: linear-gradient(90deg, rgba(207,65,33,1) 20%, rgb(196, 34, 17,1) 40%);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    text-align: center;
+}
+.resetBtn:hover {
+    background-color: #d32f2f;
+}
+
+.more-indicator {
+    background: #ddd;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    padding: 2px 6px;
+    color: #333;
+}
