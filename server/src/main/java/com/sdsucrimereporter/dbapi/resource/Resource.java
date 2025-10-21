@@ -23,11 +23,13 @@ import static org.springframework.http.MediaType.IMAGE_PNG_VALUE;
 @RequestMapping("/reports")
 @RequiredArgsConstructor
 public class Resource {
-    private sdsuService service;
+
+
+    private final sdsuService service;
 
     @PostMapping
     public ResponseEntity<Report> createReport(@RequestBody Report report) {
-        return ResponseEntity.created(URI.create("reports/reportID")).body(service.createReport(report));
+        return ResponseEntity.created(URI.create("reports/reportId")).body(service.createReport(report));
     }
 
     @GetMapping

@@ -1,5 +1,6 @@
 // CreateReport.jsx
-import React from 'react';
+import React, {useState} from 'react';
+import Map from "./Map.jsx";
 
 function Report({ showModal, setShowModal, backdropRef, onBackdropClick }) {
     if (!showModal) return null;

@@ -32,16 +32,16 @@ import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 public class sdsuService {
     private static final Logger log = LoggerFactory.getLogger(Service.class);
 
-    private ReportRepo reportRepo;
+    private final ReportRepo reportRepo;
 
 
-    private ReporterRepo reporterRepo;
+    private final ReporterRepo reporterRepo;
 
 
 
     // Report
     public Page<Report> getAllReports(int page, int size) {
-        return reportRepo.findAll(PageRequest.of(page, size, Sort.by("id")));
+        return reportRepo.findAll(PageRequest.of(page, size, Sort.by("reportId")));
 
     }
 

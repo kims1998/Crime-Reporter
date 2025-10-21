@@ -12,6 +12,7 @@ const SDSUMap = () => {
     const [selectedCrime, setSelectedCrime] = useState(null);
 
     const position = { lat: 32.7764, lng: -117.0719 };
+    const marked = 0;
 
     const sdsuBounds = {
         north: 32.780,
