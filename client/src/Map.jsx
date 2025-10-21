@@ -1,10 +1,10 @@
+import "./Styles/Maps.css";
 import {APIProvider, Map, AdvancedMarker, Pin} from "@vis.gl/react-google-maps";
 import {useState} from "react";
 const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 const mapId = import.meta.env.VITE_GOOGLE_MAPS_MAPID;
 
 const SDSUMap = () => {
-
     const [markerPosition, setMarkerPosition] = useState(null);
     const position = { lat: 32.7764, lng: -117.0719 };
 
@@ -33,7 +33,7 @@ const SDSUMap = () => {
             <Map
                 defaultCenter = { position }
                 defaultZoom={ 16 }
-                style={{ width: '100%', height: '100%'}}
+                style={{ width: '100%', height: '100%', borderRadius: 15, overflow: "hidden"}}
                 iD
                 options={{
                     mapId: mapId,

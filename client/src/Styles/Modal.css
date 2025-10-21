@@ -1,0 +1,53 @@
+.modalHeader h2{
+    margin: 0;
+    font-size: 1.2rem;
+    letter-spacing: 0.2px;
+}
+
+/* Centering position */
+.modalBackdrop{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.55);
+    display: grid;
+    place-items: center;
+    z-index: 1000;
+}
+
+.modalCard{
+    max-height: 90vh;
+    overflow: auto;
+}
+
+.modalClose{
+    background: transparent;
+    border: 0;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: #bbb;
+}
+.modalClose:hover{ color:#fff; }
+
+.modalBody{
+    padding: 20px;
+    color: var(--text);
+}
+
+/* Report Popup */
+.modalCard{
+    /* switch to dark to match site */
+    background: var(--panel);
+    color: var(--text);
+    width: min(720px, 94vw);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.45);
+    border: 1px solid var(--border);
+}
+
+.modalHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border);
+}
