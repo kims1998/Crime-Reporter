@@ -1,0 +1,11 @@
+.mapPanel{
+    background:#595151;
+    border:1px solid #E6DFDF;
+    border-radius:16px;
+    min-height:520px;
+    color:#403939;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:600;
+}
