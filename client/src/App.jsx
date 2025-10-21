@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import "./App.css";
+import "./Styles/App.css";
 import SDSUMap from "./Map.jsx";
 import Report from "./CreateReport.jsx";
+import Filter from "./Filter.jsx";
 
 export default function App() {
 
@@ -25,25 +26,20 @@ export default function App() {
 
     return (
         <div className="page">
-            {/* The login bar */}
-            <div className="loginBar">
-                <button className="textBtn" disabled>Login</button>
+            <div className="header">
+                <div className="schoolLogo"></div>
+                <button className="loginBtn" disabled>Login</button>
             </div>
 
-            {/* Header with logo space, search bar and create report button */}
-            <header className="header">
-                <div className="logoPlaceholder"></div>
-
-
-                <div className="searchWrap">
-                    <input className="search" placeholder="Search..." disabled />
-                    <span className="searchIcon">🔍</span>
+            <header className="navBar">
+                <div className="card filtersCard">
+                    <Filter />
                 </div>
-
-                <button className="createBtn" onClick={() => setShowModal(true)}>Create Report</button>
-
+                <button className="createBtn"
+                        onClick={() => setShowModal(true)}>
+                    Create Report
+                </button>
             </header>
-
 
             {/* Main content with left rail and map */}
             <main className="content">
@@ -71,29 +67,18 @@ export default function App() {
                             <p className="reportDescription">No description yet.</p>
                         </div>
                     </div>
-
-
-                    <div className="card filtersCard">
-                        <h3>FILTERS</h3>
-                        <label><input type="checkbox" /> Property Crime</label>
-                        <label><input type="checkbox" /> Violent Crime</label>
-                        <label><input type="checkbox" /> Theft</label>
-                    </div>
                 </section>
 
                 <section className="mapPanel">
                     <SDSUMap />
                 </section>
-
             </main>
-
             <Report
                 showModal={showModal}
                 setShowModal={setShowModal}
                 backdropRef={backdropRef}
                 onBackdropClick={onBackdropClick}
             />
-
         </div>
     );
 }

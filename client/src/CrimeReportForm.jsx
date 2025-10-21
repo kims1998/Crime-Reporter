@@ -1,3 +1,5 @@
+import './Styles/Modal.css';
+import "./Styles/ReportCard.css";
 import { useState } from "react";
 
 const CrimeReportForm = ({ position, onClose, onSubmit }) => {

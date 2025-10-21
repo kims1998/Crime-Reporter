@@ -1,4 +1,5 @@
-// CreateReport.jsx
+import "./Styles/Modal.css";
+import "./Styles/ReportCard.css";
 import React from 'react';
 
 function Report({ showModal, setShowModal, backdropRef, onBackdropClick }) {
