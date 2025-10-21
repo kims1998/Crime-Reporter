@@ -1,6 +1,7 @@
 import "./Styles/Maps.css";
 import {APIProvider, Map, AdvancedMarker, Pin} from "@vis.gl/react-google-maps";
 import {useState} from "react";
+import pinImagePath from "./images/NicePng_hamster-png_9694074.png"
 const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 const mapId = import.meta.env.VITE_GOOGLE_MAPS_MAPID;
 
@@ -52,10 +53,17 @@ const SDSUMap = () => {
                 <AdvancedMarker
                     position={markerPosition}>
                     <Pin
-                        background={'#FF0000'}
-                        borderColor={'#8B0000'}
-                        glyphColor={'#FFFFFF'}
+                        background={'transparent'}
+                        borderColor={'transparent'}
                         >
+                        <img
+                            src={pinImagePath}
+                            style={{
+                                width: '30px',
+                                height: '30px',
+                                objectFit: 'contain'
+                            }}
+                        />
                     </Pin>
                 </AdvancedMarker>
             </Map>
