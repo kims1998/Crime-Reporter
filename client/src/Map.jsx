@@ -1,7 +1,7 @@
 import "./Styles/Maps.css";
 import {APIProvider, Map, AdvancedMarker, Pin} from "@vis.gl/react-google-maps";
 import {useState} from "react";
-import pinImagePath from "./images/NicePng_hamster-png_9694074.png"
+import pinImagePath from "./images/icons8-map-pin-48.png"
 const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 const mapId = import.meta.env.VITE_GOOGLE_MAPS_MAPID;
 
