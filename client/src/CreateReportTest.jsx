@@ -245,11 +245,13 @@ function CreateReportTest({ report, onSave, onClose, readOnly }) {
                                 >
                                     Cancel
                                 </button>
+
                                 <button
                                     type="button"
                                     className="btn primary"
                                     onClick={handleSave}
                                 >
+
                                     Save
                                 </button>
                             </div>

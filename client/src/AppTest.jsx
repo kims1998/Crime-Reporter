@@ -10,6 +10,11 @@ export default function AppTest() {
     const [activeReport, setActiveReport] = useState(null); // report being created
     const [viewReport, setViewReport] = useState(null); // report being viewed read-only
 
+    const handleCancelReport = (reportId) => {
+        setReports((prev) => prev.filter(r => r.id !== reportId));
+        setActiveReport(null);
+    }
+
     // Start creating a new report
     const startCreateReport = () => {
         setPinPlacementMode(true);
@@ -89,7 +94,7 @@ export default function AppTest() {
                 <CreateReportTest
                     report={activeReport}
                     onSave={handleSaveReport}
-                    onClose={() => setActiveReport(null)}
+                    onClose={() => handleCancelReport(activeReport.id)}
                     readOnly={false}
                 />
             )}
