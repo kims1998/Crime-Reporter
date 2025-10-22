@@ -41,7 +41,27 @@ function CreateReportTest({ report, onSave, onClose, readOnly }) {
     };
 
     const handleSave = () => {
-        if (!readOnly) onSave(report.id, formData);
+        if (readOnly) return;
+
+        const requiredFields = [
+            "date",
+            "time",
+            "yourAge",
+            "yourGender",
+            "personAge",
+            "personGender",
+            "description",
+        ];
+
+        const emptyField = requiredFields.find(field=>!formData[field] || formData[field].trim() === "");
+        const noIncidentType = formData.incidentType.length === 0;
+
+        if (emptyField || noIncidentType) {
+            alert("⚠️Please fill in all required fields and select at least one incident type before saving.");
+            return;
+        }
+
+        onSave(report.id, formData);
     };
 
     return (
