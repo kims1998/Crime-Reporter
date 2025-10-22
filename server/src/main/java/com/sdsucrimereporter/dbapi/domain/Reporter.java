@@ -23,6 +23,9 @@ public class Reporter {
     @UuidGenerator
     @Column(name = "redid", unique = true)
     private String redID;
+    private String firstName;
+    private String lastName;
+    private String sdsuEmail;
     private int password;
 
     public String getRedID() {
