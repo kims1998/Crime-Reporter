@@ -1,6 +1,6 @@
 import "./Styles/Modal.css";
 import "./Styles/ReportCard.css";
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Report({ showModal, setShowModal, backdropRef, onBackdropClick }) {
     if (!showModal) return null;
@@ -96,10 +96,13 @@ function Report({ showModal, setShowModal, backdropRef, onBackdropClick }) {
                         <div className="field full">
                             <label>Type of Incident</label>
                             <div className="checksRow">
-                                <label className="check"><input type="checkbox" /> <span>Theft</span></label>
-                                <label className="check"><input type="checkbox" /> <span>Vandalism</span></label>
+                                <label className="check"><input type="checkbox" /> <span>Arson</span></label>
                                 <label className="check"><input type="checkbox" /> <span>Assault</span></label>
-                                <label className="check"><input type="checkbox" /> <span>Disturbance</span></label>
+                                <label className="check"><input type="checkbox" /> <span>Burglary</span></label>
+                                <label className="check"><input type="checkbox" /> <span>Extortion</span></label>
+                                <label className="check"><input type="checkbox" /> <span>Murder</span></label>
+                                <label className="check"><input type="checkbox" /> <span>Indecency</span></label>
+                                <label className="check"><input type="checkbox" /> <span>Theft</span></label>
                                 <label className="check"><input type="checkbox" /> <span>Other</span></label>
                             </div>
                         </div>

@@ -1,3 +1,10 @@
+.modalHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border);
+}
 .modalHeader h2{
     margin: 0;
     font-size: 1.2rem;
@@ -5,32 +12,13 @@
 }
 
 /* Centering position */
-.modalBackdrop{
+.modalBackdrop {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.55);
+    background: rgba(0, 0, 0, .55);
     display: grid;
     place-items: center;
     z-index: 1000;
-}
-
-.modalCard{
-    max-height: 90vh;
-    overflow: auto;
-}
-
-.modalClose{
-    background: transparent;
-    border: 0;
-    font-size: 1.1rem;
-    cursor: pointer;
-    color: #bbb;
-}
-.modalClose:hover{ color:#fff; }
-
-.modalBody{
-    padding: 20px;
-    color: var(--text);
 }
 
 /* Report Popup */
@@ -44,27 +32,23 @@
     border: 1px solid var(--border);
 }
 
-.modalHeader{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px 20px;
-    border-bottom: 1px solid var(--border);
+.modalClose{
+    background: transparent;
+    border: 0;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: #bbb;
+}
+.modalClose:hover{
+    color:#fff;
 }
 
-
-
-/* Login in & Sign up*/
-
-.modalBackdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  display: grid;
-  place-items: center;
-  z-index: 1000;
+.modalBody{
+    padding: 20px;
+    color: var(--text);
 }
 
+/* MODAL CONTENT */
 .modalContent {
   background: var(--panel);
   color: var(--text);
@@ -77,22 +61,17 @@
   text-align: center;
   animation: fadeIn 0.25s ease-in-out;
 }
-
-
 .modalContent h2 {
   color: var(--white);
   margin-bottom: 1.5rem;
   font-size: 1.4rem;
 }
-
-
 .modalContent .field {
   display: flex;
   flex-direction: column;
   gap: 8px;
   margin-bottom: 12px;
 }
-
 .modalContent input {
   background: var(--panelLight);
   color: var(--text);
@@ -103,18 +82,14 @@
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-
 .modalContent input::placeholder {
   color: #bfb8b8;
   opacity: 0.85;
 }
-
 .modalContent input:focus {
   border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(166, 25, 46, 0.25);
 }
-
-
 .modalContent button[type="submit"] {
   background: var(--accent);
   color: var(--white);
@@ -128,11 +103,13 @@
   margin-top: 8px;
   transition: filter 0.2s ease;
 }
-
 .modalContent button[type="submit"]:hover {
   filter: brightness(1.05);
 }
-
+.modalContent p:last-child {
+     margin-top: 1rem;
+ }
+/* END MODAL CONTENT */
 
 .linkish {
   background: none;
@@ -144,15 +121,9 @@
   padding: 0;
 }
 
-
 .swapText {
   color: #ccc;
   font-size: 0.9rem;
-  margin-top: 1rem;
-}
-
-
-.modalContent p:last-child {
   margin-top: 1rem;
 }
 

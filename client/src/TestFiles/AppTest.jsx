@@ -1,8 +1,8 @@
 import { useState } from "react";
-import "./Styles/App.css";
+import "../Styles/App.css";
 import MapTest from "./MapTest.jsx";
 import CreateReportTest from "./CreateReportTest.jsx";
-import Filter from "./Filter.jsx"; // keep original filters
+import Filter from "../Filter.jsx"; // keep original filters
 
 export default function AppTest() {
     const [pinPlacementMode, setPinPlacementMode] = useState(false);

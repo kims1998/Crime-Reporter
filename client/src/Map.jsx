@@ -1,6 +1,6 @@
 import "./Styles/Maps.css";
-import {APIProvider, Map, AdvancedMarker, Pin} from "@vis.gl/react-google-maps";
-import {useState} from "react";
+import { APIProvider, Map, AdvancedMarker, Pin } from "@vis.gl/react-google-maps";
+import { useState } from "react";
 import pinImagePath from "./images/icons8-map-pin-48.png"
 const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 const mapId = import.meta.env.VITE_GOOGLE_MAPS_MAPID;
@@ -30,7 +30,7 @@ const SDSUMap = () => {
     }
 
     return (
-        <APIProvider apiKey={apiKey} libraries={["marker"]} mapId={mapId}>
+        <APIProvider apiKey={ apiKey } libraries={["marker"]} mapId={ mapId }>
             <Map
                 defaultCenter = { position }
                 defaultZoom={ 16 }
@@ -57,7 +57,7 @@ const SDSUMap = () => {
                         borderColor={'transparent'}
                         >
                         <img
-                            src={pinImagePath}
+                            src={ pinImagePath }
                             style={{
                                 width: '30px',
                                 height: '30px',

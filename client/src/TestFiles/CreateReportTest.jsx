@@ -1,5 +1,5 @@
-import "./Styles/Modal.css";
-import "./Styles/ReportCard.css";
+import "../Styles/Modal.css";
+import "../Styles/ReportCard.css";
 import React, { useState, useEffect } from "react";
 
 function CreateReportTest({ report, onSave, onClose, readOnly }) {

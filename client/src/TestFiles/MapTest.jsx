@@ -1,9 +1,9 @@
-import "./Styles/Maps.css";
+import "../Styles/Maps.css";
 import { APIProvider, Map, AdvancedMarker, Pin } from "@vis.gl/react-google-maps";
-import pinImagePath from "./images/icons8-map-pin-48.png";
-
+import pinImagePath from "../images/icons8-map-pin-48.png";
 const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 const mapId = import.meta.env.VITE_GOOGLE_MAPS_MAPID;
+
 const center = { lat: 32.7764, lng: -117.0719 };
 
 export default function MapTest({ reports, onMapClick, onMarkerClick }) {
