@@ -5,6 +5,9 @@ spring:
     password: RootDoc45!
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+  # the url, username, and password are all based on your MySQL setup.
+  # Here I am using a local hosted connection with my own username and password.
+
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     generate-ddl: true
