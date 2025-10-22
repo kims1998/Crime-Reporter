@@ -51,3 +51,121 @@
     padding: 18px 20px;
     border-bottom: 1px solid var(--border);
 }
+
+
+
+/* Login in & Sign up*/
+
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: grid;
+  place-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: var(--panel);
+  color: var(--text);
+  padding: 2rem;
+  border-radius: 20px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+  border: 1px solid var(--border);
+  text-align: center;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+
+.modalContent h2 {
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+}
+
+
+.modalContent .field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.modalContent input {
+  background: var(--panelLight);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modalContent input::placeholder {
+  color: #bfb8b8;
+  opacity: 0.85;
+}
+
+.modalContent input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(166, 25, 46, 0.25);
+}
+
+
+.modalContent button[type="submit"] {
+  background: var(--accent);
+  color: var(--white);
+  border: none;
+  padding: 12px 16px;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 8px;
+  transition: filter 0.2s ease;
+}
+
+.modalContent button[type="submit"]:hover {
+  filter: brightness(1.05);
+}
+
+
+.linkish {
+  background: none;
+  border: 0;
+  color: var(--accent);
+  cursor: pointer;
+  font-weight: 600;
+  margin-left: 6px;
+  padding: 0;
+}
+
+
+.swapText {
+  color: #ccc;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+
+.modalContent p:last-child {
+  margin-top: 1rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+
