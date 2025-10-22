@@ -78,10 +78,10 @@ export default function App() {
                 </section>
             </main>
             <Report
-                showModal={showModal}
-                setShowModal={setShowModal}
-                backdropRef={backdropRef}
-                onBackdropClick={onBackdropClick}
+                showModal={ showModal }
+                setShowModal={ setShowModal }
+                backdropRef={ backdropRef }
+                onBackdropClick={ onBackdropClick }
             />
             <AuthModal open={ authOpen } onClose={() => setAuthOpen(false)} />
         </div>

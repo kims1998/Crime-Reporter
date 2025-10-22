@@ -1,7 +1,7 @@
 import "./Styles/Maps.css";
 import { APIProvider, Map, AdvancedMarker, Pin } from "@vis.gl/react-google-maps";
 import { useState } from "react";
-import pinImagePath from "./images/icons8-map-pin-48.png"
+import pinImagePath from "./images/droppedPin.png"
 const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 const mapId = import.meta.env.VITE_GOOGLE_MAPS_MAPID;
 
@@ -26,7 +26,7 @@ const SDSUMap = () => {
     const mapClicker = (event) => {
         const lat = event.detail.latLng.lat;
         const lng = event.detail.latLng.lng;
-        setMarkerPosition({ lat, lng})
+        setMarkerPosition({ lat, lng });
     }
 
     return (
@@ -34,7 +34,7 @@ const SDSUMap = () => {
             <Map
                 defaultCenter = { position }
                 defaultZoom={ 16 }
-                style={{ width: '100%', height: '100%', borderRadius: 15, overflow: "hidden"}}
+                style={{ width: '100%', height: '100%', borderRadius: 15, overflow: "hidden" }}
                 iD
                 options={{
                     mapId: mapId,
@@ -48,13 +48,13 @@ const SDSUMap = () => {
                     fullscreenControl: true,
                     scaleControl: true
                 }}
-                onClick={mapClicker}
+                onClick={ mapClicker }
             >
                 <AdvancedMarker
-                    position={markerPosition}>
+                    position={ markerPosition }>
                     <Pin
-                        background={'transparent'}
-                        borderColor={'transparent'}
+                        background={ 'transparent' }
+                        borderColor={ 'transparent' }
                         >
                         <img
                             src={ pinImagePath }

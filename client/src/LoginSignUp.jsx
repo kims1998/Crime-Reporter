@@ -75,7 +75,7 @@ function AuthModal({ open, onClose }) {
                                 type="text"
                                 name="lastName"
                                 placeholder="Last Name"
-                                value={form.lastName}
+                                value={ form.lastName }
                                 onChange={ onChange }
                                 required
                             />
@@ -84,8 +84,8 @@ function AuthModal({ open, onClose }) {
                                 type="email"
                                 name="email"
                                 placeholder="SDSU Email"
-                                value={form.email}
-                                onChange={onChange}
+                                value={ form.email }
+                                onChange={ onChange }
                                 required
                             />
                             <input
@@ -93,8 +93,8 @@ function AuthModal({ open, onClose }) {
                                 type="text"
                                 name="redId"
                                 placeholder="Red ID"
-                                value={form.redId}
-                                onChange={onChange}
+                                value={ form.redId }
+                                onChange={ onChange }
                                 required
                             />
                             <input
@@ -103,7 +103,7 @@ function AuthModal({ open, onClose }) {
                                 name="password"
                                 placeholder="Password"
                                 value={form.password}
-                                onChange={onChange}
+                                onChange={ onChange }
                                 required
                             />
                             <input
@@ -111,8 +111,8 @@ function AuthModal({ open, onClose }) {
                                 type="password"
                                 name="confirm"
                                 placeholder="Confirm Password"
-                                value={form.confirm}
-                                onChange={onChange}
+                                value={ form.confirm }
+                                onChange={ onChange }
                                 required
                             />
                         </>
@@ -125,8 +125,8 @@ function AuthModal({ open, onClose }) {
                                 type="text"
                                 name="redId"
                                 placeholder="Red ID"
-                                value={form.redId}
-                                onChange={onChange}
+                                value={ form.redId }
+                                onChange={ onChange }
                                 required
                             />
                             <input
@@ -134,8 +134,8 @@ function AuthModal({ open, onClose }) {
                                 type="password"
                                 name="password"
                                 placeholder="Password"
-                                value={form.password}
-                                onChange={onChange}
+                                value={ form.password }
+                                onChange={ onChange }
                                 required
                             />
                         </>

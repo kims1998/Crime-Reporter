@@ -56,7 +56,7 @@ export default function AppTest() {
                 <div className="card filtersCard">
                     <Filter /> {/* keep original filters */}
                 </div>
-                <button className="createBtn" onClick={startCreateReport}>
+                <button className="createBtn" onClick={ startCreateReport }>
                     Create Report
                 </button>
             </nav>
@@ -65,11 +65,16 @@ export default function AppTest() {
                 <section className="leftCol">
                     <div className="card reportCard">
                         <h2>REPORTS</h2>
-                        {reports.length === 0 && <p>No reports yet.</p>}
-                        {reports.map((r) => (
-                            <div key={r.id} className="reportField">
+                        { reports.length === 0 && <p>
+                            No reports yet.
+                        </p> }
+                        { reports.map((r) => (
+                            <div key={ r.id } className="reportField">
                                 <strong>Location:</strong>
-                                <span>{r.position.lat.toFixed(5)}, {r.position.lng.toFixed(5)}</span>
+                                <span>
+                                    { r.position.lat.toFixed(5) },
+                                    { r.position.lng.toFixed(5) }
+                                </span>
                             </div>
                         ))}
                     </div>
@@ -77,9 +82,9 @@ export default function AppTest() {
 
                 <section className="mapPanel">
                     <MapTest
-                        reports={reports}
-                        onMapClick={handleMapClick}
-                        onMarkerClick={handleViewReport} // now view only
+                        reports={ reports }
+                        onMapClick={ handleMapClick }
+                        onMarkerClick={ handleViewReport } // now view only
                     />
                 </section>
             </main>
@@ -87,10 +92,10 @@ export default function AppTest() {
             {/* Modal for creating/editing a report */}
             {activeReport && (
                 <CreateReportTest
-                    report={activeReport}
-                    onSave={handleSaveReport}
+                    report={ activeReport }
+                    onSave={ handleSaveReport }
                     onClose={() => setActiveReport(null)}
-                    readOnly={false}
+                    readOnly={ false }
                 />
             )}
 
@@ -99,7 +104,7 @@ export default function AppTest() {
                 <CreateReportTest
                     report={viewReport}
                     onClose={() => setViewReport(null)}
-                    readOnly={true}
+                    readOnly={ true }
                 />
             )}
         </div>
