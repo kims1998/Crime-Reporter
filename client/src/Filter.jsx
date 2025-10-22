@@ -9,7 +9,9 @@ const CustomMultiValueContainer = (props) => {
     const { children, data, selectProps } = props;
     const selected = selectProps.value || [];
 
-    if (!data) return <components.MultiValueContainer {...props}>{children}</components.MultiValueContainer>;
+    if (!data) return <components.MultiValueContainer { ...props }>
+        { children }
+    </components.MultiValueContainer>;
 
     const index = selected.findIndex((val) => val.value === data.value);
     const hiddenCount = selected.length - MAX_VISIBLE_TAGS;
@@ -24,13 +26,13 @@ const CustomMultiValueContainer = (props) => {
 
     if (index > MAX_VISIBLE_TAGS) return null;
 
-    return <components.MultiValueContainer {...props}>
-        {children}
+    return <components.MultiValueContainer { ...props }>
+        { children }
     </components.MultiValueContainer>;
 };
 
 const CustomMultiValue = (props) => {
-    return <components.MultiValue {...props} />;
+    return <components.MultiValue { ...props } />;
 };
 
 const customStyles = {
@@ -61,7 +63,7 @@ const customStyles = {
 
 const CheckboxOption = (props) => {
     return (
-        <components.Option {...props}>
+        <components.Option { ...props }>
             <input
                 type="checkbox"
                 checked={ props.isSelected }

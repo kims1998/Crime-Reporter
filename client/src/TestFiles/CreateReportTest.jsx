@@ -68,9 +68,9 @@ function CreateReportTest({ report, onSave, onClose, readOnly }) {
                                 id="date"
                                 type="date"
                                 className="input"
-                                value={formData.date}
-                                onChange={handleChange}
-                                readOnly={readOnly}
+                                value={ formData.date }
+                                onChange={ handleChange }
+                                readOnly={ readOnly }
                             />
                         </div>
 
@@ -81,22 +81,22 @@ function CreateReportTest({ report, onSave, onClose, readOnly }) {
                                     id="time"
                                     type="time"
                                     className="input"
-                                    value={formData.time}
-                                    onChange={handleChange}
-                                    readOnly={readOnly}
+                                    value={ formData.time }
+                                    onChange={ handleChange }
+                                    readOnly={ readOnly }
                                 />
                                 <div className="segmented" role="radiogroup" aria-label="AM or PM">
                                     {["AM","PM"].map(v => (
-                                        <label key={v} className="segmentedItem">
+                                        <label key={ v } className="segmentedItem">
                                             <input
                                                 type="radio"
                                                 name="ampm"
-                                                value={v}
-                                                checked={formData.ampm === v}
-                                                onChange={handleChange}
-                                                disabled={readOnly}
+                                                value={ v }
+                                                checked={ formData.ampm === v }
+                                                onChange={ handleChange }
+                                                disabled={ readOnly }
                                             />
-                                            <span>{v}</span>
+                                            <span>{ v }</span>
                                         </label>
                                     ))}
                                 </div>
@@ -112,9 +112,9 @@ function CreateReportTest({ report, onSave, onClose, readOnly }) {
                                 min="0"
                                 placeholder="e.g., 21"
                                 className="input"
-                                value={formData.yourAge}
-                                onChange={handleChange}
-                                readOnly={readOnly}
+                                value={ formData.yourAge }
+                                onChange={ handleChange }
+                                readOnly={ readOnly }
                             />
                         </div>
 
@@ -122,10 +122,10 @@ function CreateReportTest({ report, onSave, onClose, readOnly }) {
                             <label htmlFor="yourGender">Your Gender</label>
                             <select
                                 id="yourGender"
-                                value={formData.yourGender}
+                                value={ formData.yourGender }
                                 className="input"
-                                onChange={handleChange}
-                                disabled={readOnly}
+                                onChange={ handleChange }
+                                disabled={ readOnly }
                             >
                                 <option value="" disabled>Select…</option>
                                 <option>M</option>
@@ -145,9 +145,9 @@ function CreateReportTest({ report, onSave, onClose, readOnly }) {
                                 type="text"
                                 placeholder="(optional)"
                                 className="input"
-                                value={formData.personName}
-                                onChange={handleChange}
-                                readOnly={readOnly}
+                                value={ formData.personName }
+                                onChange={ handleChange }
+                                readOnly={ readOnly }
                             />
                         </div>
 
@@ -159,9 +159,9 @@ function CreateReportTest({ report, onSave, onClose, readOnly }) {
                                 min="0"
                                 placeholder="e.g., 22"
                                 className="input"
-                                value={formData.personAge}
-                                onChange={handleChange}
-                                readOnly={readOnly}
+                                value={ formData.personAge }
+                                onChange={ handleChange }
+                                readOnly={ readOnly }
                             />
                         </div>
 
@@ -169,10 +169,10 @@ function CreateReportTest({ report, onSave, onClose, readOnly }) {
                             <label htmlFor="personGender">Gender</label>
                             <select
                                 id="personGender"
-                                value={formData.personGender}
+                                value={ formData.personGender }
                                 className="input"
-                                onChange={handleChange}
-                                disabled={readOnly}
+                                onChange={ handleChange }
+                                disabled={ readOnly }
                             >
                                 <option value="" disabled>Select…</option>
                                 <option>M</option>
@@ -187,15 +187,15 @@ function CreateReportTest({ report, onSave, onClose, readOnly }) {
                             <label>Type of Incident</label>
                             <div className="checksRow">
                                 {["Theft","Vandalism","Assault","Disturbance","Other"].map(v => (
-                                    <label key={v} className="check">
+                                    <label key={ v } className="check">
                                         <input
                                             type="checkbox"
-                                            value={v}
-                                            checked={formData.incidentType.includes(v)}
-                                            onChange={handleChange}
-                                            disabled={readOnly}
+                                            value={ v }
+                                            checked={ formData.incidentType.includes(v) }
+                                            onChange={ handleChange }
+                                            disabled={ readOnly }
                                         />
-                                        <span>{v}</span>
+                                        <span>{ v }</span>
                                     </label>
                                 ))}
                             </div>
@@ -209,9 +209,9 @@ function CreateReportTest({ report, onSave, onClose, readOnly }) {
                                 rows="5"
                                 placeholder="Describe what happened…"
                                 className="input textarea"
-                                value={formData.description}
-                                onChange={handleChange}
-                                readOnly={readOnly}
+                                value={ formData.description }
+                                onChange={ handleChange }
+                                readOnly={ readOnly }
                             />
                         </div>
 
@@ -221,25 +221,23 @@ function CreateReportTest({ report, onSave, onClose, readOnly }) {
                                 <button
                                     type="button"
                                     className="btn secondary"
-                                    onClick={onClose}
+                                    onClick={ onClose }
                                 >
                                     Cancel
                                 </button>
                                 <button
                                     type="button"
                                     className="btn primary"
-                                    onClick={handleSave}
+                                    onClick={ handleSave }
                                 >
                                     Save
                                 </button>
                             </div>
                         )}
-
                     </form>
                 </div>
             </div>
         </div>
     );
 }
-
 export default CreateReportTest;

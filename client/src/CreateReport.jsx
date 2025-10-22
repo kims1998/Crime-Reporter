@@ -8,8 +8,8 @@ function Report({ showModal, setShowModal, backdropRef, onBackdropClick }) {
     return (
         <div
             className="modalBackdrop"
-            ref={backdropRef}
-            onMouseDown={onBackdropClick}
+            ref={ backdropRef }
+            onMouseDown={ onBackdropClick }
             role="dialog"
             aria-modal="true"
             aria-labelledby="cr-title"
