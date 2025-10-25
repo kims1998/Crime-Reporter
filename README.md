@@ -1,4 +1,6 @@
 # Crime Reporter
+
+**REPOSITORY IS HALTED. Course requires we work on another project, which stops this project currently.**
 ------
 ## Table of Content
 
@@ -17,7 +19,7 @@ Crime Reporter is an application that allows students and faculty to see crime r
 ------
 ## Usage:
 
-To use this application, necessary dependencies will need to be installed. Run the following commands:
+To use this application, node.js and Vite will be needed. After those are installed, the necessary dependencies will need to be installed. Run the following commands:
 
 ```aiignore
 npm i
